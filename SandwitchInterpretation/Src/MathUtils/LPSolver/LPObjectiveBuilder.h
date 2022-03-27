@@ -16,6 +16,7 @@ namespace AI {
 	public:
 		void setColumnCoef(std::string name, double val);
 		void setObjectiveType(LPObjectiveType type);
+		void setObjectiveTypeAndRebuild(LPObjectiveType type);
 
 		void build();
 

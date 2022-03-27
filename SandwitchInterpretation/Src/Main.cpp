@@ -1,33 +1,30 @@
 
 #include "lp_lib.h"
 #include "AbstractDomain/Zonotope/Zonotope.h"
+#include "AbstractDomain/ZonotopeN/ZonotopeN.h"
 #include <armadillo>
+#include "MathUtils/RandomizedTesting/ZonotopeRandomizer.h"
+#include "AbstractDomain/AbstractDomainBuilder.h"
+#include "AbstractDomain/ComplexAbstractDomainBuilder.h"
+#include "AbstractDomain/PolyhedronUnder/PolyhedronUnder.h"
+#include "AbstractDomain/PolyhedronUnderN/PolyhedronUnderN.h"
+
 
 int main()
 {
-    std::vector<arma::mat> generators;
+	std::vector<AI::Halfspace*> halfspaces;
 
-    arma::mat g1 = { 1, 0, -1 };
-    generators.push_back(g1);
+	AI::Halfspace* hs = new AI::Halfspace(2, arma::mat {{0,1}}, 1);
+	halfspaces.push_back(hs);
 
-    arma::mat g2 = { 1, 1, 2 };
-    generators.push_back(g2);
+	AI::PolyhedronUnder p(halfspaces);
 
-    arma::mat g3 = { 1, 3, 0 };
-    generators.push_back(g3);
+	AI::PolyhedronUnderN pn(p, 1);
+	pn.print();
+	std::cout << "\n\n" << std::endl;
 
-    
+	pn.applyReLu();
+	std::cout << "\n\n" << std::endl;
 
-    arma::mat bias = { {0, 1, 2} };
-
-    AI::Zonotope z = AI::Zonotope(generators, bias);
-
-    std::cout << "==== start: ====" << std::endl;
-    z.print();
-
-    z.applyReLuOnDim(0);
-
-    std::cout << "==== after relu: ====" << std::endl;
-    z.print();
-
+	pn.printFull();
 }

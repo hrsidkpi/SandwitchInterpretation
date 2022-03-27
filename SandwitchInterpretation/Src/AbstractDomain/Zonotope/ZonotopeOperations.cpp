@@ -8,6 +8,8 @@ AI::Zonotope AI::createBoundingZonotope(std::vector<arma::mat> points, std::vect
 	unsigned numPoints = points.size();
 	unsigned numGens = generators.size();
 
+	std::cout << "Bounding " << numPoints << " points with a zonotope (" << numGens << " generators, " << dim << " dims)." << std::endl;
+
 	LPSolver solver = LPSolver(numGens + numPoints * numGens + dim);
 	for (unsigned g = 0; g < numGens; g++) {
 		solver.addVariableName("g" + std::to_string(g));
@@ -87,11 +89,56 @@ AI::Zonotope AI::createBoundingZonotope(std::vector<arma::mat> points, std::vect
 		if (arma::norm(generators[g]) < 0.0000001 || res.vars[g].val < 0.0000001) continue;
 		resGenerators.push_back(res.vars[g].val * generators[g]);
 	}
-	arma::mat resBias(1, dim, arma::fill::zeros);
+	arma::mat resBias(dim, 1, arma::fill::zeros);
 	for (unsigned d = 0; d < dim; d++) {
 		resBias[d] = res.vars[numGens + d].val;
 	}
 
 	return AI::Zonotope(resGenerators, resBias);
 
+}
+
+AI::Zonotope AI::joinZonotopes(AI::Zonotope z1, AI::Zonotope z2) {
+	arma::mat bias = (z1.getBias() + z2.getBias()) / 2;
+
+	std::vector<arma::mat> g1 = z1.getGenerators();
+	std::vector<arma::mat> g2 = z2.getGenerators();
+	if (g1.size() < g2.size()) {
+		for (unsigned _ = 0; _ < g2.size() - g1.size(); _++)
+			g1.push_back(arma::mat(1, z1.getDimension(), arma::fill::zeros));
+	}
+	if (g2.size() < g1.size()) {
+		for (unsigned _ = 0; _ < g1.size() - g2.size(); _++)
+			g2.push_back(arma::mat(1, z1.getDimension(), arma::fill::zeros));
+	}
+
+	std::vector<arma::mat> newGens;
+	for (unsigned i = 0; i < g1.size(); i++) {
+		newGens.push_back((g1[i] + g2[i]) / 2);
+		newGens.push_back((g1[i] - g2[i]) / 2);
+	}
+	newGens.push_back((z1.getBias() - z2.getBias()) / 2);
+
+	return AI::Zonotope(newGens, bias);
+}
+
+std::pair<AI::Zonotope, AI::Zonotope> AI::splitZonotope(AI::Zonotope z) {
+	unsigned bestIndex = -1;
+	unsigned bestMag = 0;
+	for (unsigned i = 0; i < z.getGenerators().size(); i++) {
+		double norm = arma::norm(z.getGenerators()[i]);
+		if (norm > bestMag) {
+			bestMag = norm;
+			bestIndex = i;
+		}
+	}
+
+	AI::Zonotope zPos(z);
+	AI::Zonotope zNeg(z);
+
+	zPos.changeEpsilonBounds(bestIndex, 0, 1);
+	zNeg.changeEpsilonBounds(bestIndex, -1, 0);
+
+	std::pair<AI::Zonotope, AI::Zonotope> res(zPos, zNeg);
+	return res;
 }

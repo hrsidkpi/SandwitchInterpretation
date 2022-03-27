@@ -1,7 +1,7 @@
 #include "LPRowBuilder.h"
 #include <stdlib.h>
 
-
+		
 AI::LPRowBuilder::LPRowBuilder(AI::LPSolver* lp) : solver(lp) {
 	colno = (int*)malloc(lp->variableCount * sizeof(*colno));
 	row = (REAL*)malloc(lp->variableCount * sizeof(*row));
@@ -21,6 +21,8 @@ void AI::LPRowBuilder::setColumnCoef(std::string name, double val)
 	colno[numberOfVars] = index;
 	numberOfVars++;
 
+	delete[] c_name;
+
 }
 
 void AI::LPRowBuilder::setRightHandSide(double rh)
@@ -39,9 +41,14 @@ void AI::LPRowBuilder::build()
 	set_add_rowmode(solver->lp, TRUE);
 
 	if (constraintType == AI::EQUALS)
-		add_constraintex(solver->lp, numberOfVars, row, colno, EQ, rh);
+		add_constraintex(solver->lp, numberOfVars, row, colno, LP_EQ, rh);
 	if (constraintType == AI::GREATER_EQUALS)
-		add_constraintex(solver->lp, numberOfVars, row, colno, GE, rh);
+		add_constraintex(solver->lp, numberOfVars, row, colno, LP_GE, rh);
 	if (constraintType == AI::LESS_EQUALS)
-		add_constraintex(solver->lp, numberOfVars, row, colno, LE, rh);
+		add_constraintex(solver->lp, numberOfVars, row, colno, LP_LE, rh);
+
+	solver->rowCount++;
+
+	free(row);
+	free(colno);
 }

@@ -88,12 +88,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;USE_GLOP;_CRT_SECURE_NO_WARNINGS;WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\t8788443\source\repos\SandwitchInterpretation\lp_solve_5.5;C:\Users\t8788443\source\repos\SandwitchInterpretation\lp_solve_5.5\bfp;C:\Users\t8788443\source\repos\SandwitchInterpretation\lp_solve_5.5\colamd;C:\Users\t8788443\source\repos\SandwitchInterpretation\lp_solve_5.5\bfp\bfp_LUSOL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\yarde\source\repos\SandwitchInterpretation\lp_solve_5.5;C:\Users\yarde\source\repos\SandwitchInterpretation\lp_solve_5.5\bfp;C:\Users\yarde\source\repos\SandwitchInterpretation\lp_solve_5.5\colamd;C:\Users\yarde\source\repos\SandwitchInterpretation\lp_solve_5.5\bfp\bfp_LUSOL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\t8788443\source\repos\SandwitchInterpretation\armadillo-10.8.2\examples\lib_win64;C:\Users\t8788443\source\repos\SandwitchInterpretation\lp_solve_5.5\lp_solve\x64\Debug\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\yarde\source\repos\SandwitchInterpretation\armadillo-10.8.2\examples\lib_win64;C:\Users\yarde\source\repos\SandwitchInterpretation\lp_solve_5.5\lp_solve\x64\Debug\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>libopenblas.lib;legacy_stdio_definitions.lib;lp_solve.obj;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -119,13 +119,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;USE_GLOP;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\t8788443\source\repos\SandwitchInterpretation\lp_solve_5.5;C:\Users\t8788443\source\repos\SandwitchInterpretation\lp_solve_5.5\bfp;C:\Users\t8788443\source\repos\SandwitchInterpretation\lp_solve_5.5\colamd;C:\Users\t8788443\source\repos\SandwitchInterpretation\armadillo-10.8.2\include;C:\Users\t8788443\source\repos\SandwitchInterpretation\lp_solve_5.5\bfp\bfp_LUSOL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\yarde\source\repos\SandwitchInterpretation\lp_solve_5.5;C:\Users\yarde\source\repos\SandwitchInterpretation\lp_solve_5.5\bfp;C:\Users\yarde\source\repos\SandwitchInterpretation\lp_solve_5.5\colamd;C:\Users\yarde\source\repos\SandwitchInterpretation\armadillo-10.8.2\include;C:\Users\yarde\source\repos\SandwitchInterpretation\lp_solve_5.5\bfp\bfp_LUSOL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\t8788443\source\repos\SandwitchInterpretation\lp_solve_5.5\lp_solve\x64\Debug\;C:\Users\t8788443\source\repos\SandwitchInterpretation\armadillo-10.8.2\examples\lib_win64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\yarde\source\repos\SandwitchInterpretation\lp_solve_5.5\lp_solve\x64\Debug\;C:\Users\yarde\source\repos\SandwitchInterpretation\armadillo-10.8.2\examples\lib_win64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>libopenblas.lib;legacy_stdio_definitions.lib;lp_solve.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
     </Link>
@@ -138,18 +138,27 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\t8788443\source\repos\SandwitchInterpretation\or-tools\include;C:\Users\t8788443\source\repos\SandwitchInterpretation\armadillo-10.8.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\yarde\source\repos\SandwitchInterpretation\or-tools\include;C:\Users\yarde\source\repos\SandwitchInterpretation\armadillo-10.8.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\t8788443\source\repos\SandwitchInterpretation\or-tools\lib\;C:\Users\t8788443\source\repos\SandwitchInterpretation\or-tools_VisualStudio2019-64bit_v9.2.9972\lib;C:\Users\t8788443\source\repos\SandwitchInterpretation\armadillo-10.8.2\examples\lib_win64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\yarde\source\repos\SandwitchInterpretation\or-tools\lib\;C:\Users\yarde\source\repos\SandwitchInterpretation\or-tools_VisualStudio2019-64bit_v9.2.9972\lib;C:\Users\yarde\source\repos\SandwitchInterpretation\armadillo-10.8.2\examples\lib_win64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>libopenblas.lib;ortools.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Src\AbstractDomain\PolyhedronUnderN\PolyhedronUnderN.h" />
+    <ClInclude Include="Src\AbstractDomain\PolyhedronUnder\Halfspace.h" />
+    <ClInclude Include="Src\AbstractDomain\ComplexAbstractDomainBuilder.h" />
+    <ClInclude Include="Src\AbstractDomain\AbstractDomainBuilder.h" />
+    <ClInclude Include="Src\AbstractDomain\PolyhedronUnder\PolyhedronUnder.h" />
+    <ClInclude Include="Src\AbstractDomain\ZonotopeN\ZonotopeN.h" />
+    <ClInclude Include="Src\MathUtils\LinearAlgebraUtils\BasisUtils.h" />
+    <ClInclude Include="Src\MathUtils\LinearAlgebraUtils\TransformationUtils.h" />
+    <ClInclude Include="Src\MathUtils\LinearAlgebraUtils\VectorsUtils.h" />
     <ClInclude Include="Src\MathUtils\LPSolver\LPObjectiveBuilder.h" />
     <ClInclude Include="Src\MathUtils\LPSolver\LPRowBuilder.h" />
     <ClInclude Include="Src\MathUtils\LPSolver\LPSolver.h" />
@@ -158,8 +167,15 @@
     <ClInclude Include="Src\AbstractDomain\Zonotope\Zonotope.h" />
     <ClInclude Include="Src\AbstractDomain\Zonotope\ZonotopeOperations.h" />
     <ClInclude Include="Src\AbstractDomain\Zonotope\ZonotopeVertex.h" />
+    <ClInclude Include="Src\MathUtils\RandomizedTesting\ZonotopeRandomizer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Src\AbstractDomain\PolyhedronUnderN\PolyhedronUnderN.cpp" />
+    <ClCompile Include="Src\AbstractDomain\PolyhedronUnder\Halfspace.cpp" />
+    <ClCompile Include="Src\AbstractDomain\ComplexAbstractDomainBuilder.cpp" />
+    <ClCompile Include="Src\AbstractDomain\AbstractDomainBuilder.cpp" />
+    <ClCompile Include="Src\AbstractDomain\PolyhedronUnder\PolyhedronUnder.cpp" />
+    <ClCompile Include="Src\AbstractDomain\ZonotopeN\ZonotopeN.cpp" />
     <ClCompile Include="Src\AbstractDomain\Zonotope\ZonotopeOperations.cpp" />
     <ClCompile Include="Src\MathUtils\LPSolver\LPObjectiveBuilder.cpp" />
     <ClCompile Include="Src\MathUtils\LPSolver\LPRowBuilder.cpp" />

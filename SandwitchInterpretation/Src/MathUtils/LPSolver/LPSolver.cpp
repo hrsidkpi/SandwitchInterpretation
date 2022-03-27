@@ -7,6 +7,7 @@ AI::LPSolver::LPSolver(unsigned variableCount) : variableCount(variableCount)
 	set_add_rowmode(lp, TRUE);
 
 	addedNamesCount = 0;
+	rowCount = 0;
 }
 
 void AI::LPSolver::addVariableName(std::string name)
@@ -17,6 +18,8 @@ void AI::LPSolver::addVariableName(std::string name)
 	addedNamesCount++;
 
 	boundVariable(name, -get_infinite(lp), AI::LOWER);
+
+	delete[] c_name;
 }
 
 AI::LPRowBuilder AI::LPSolver::getRowBuilder()
@@ -38,6 +41,7 @@ void AI::LPSolver::boundVariable(std::string varName, double lb, double ub)
 	set_lowbo(lp, index, lb);
 	set_upbo(lp, index, ub);
 
+	delete[] c_name;
 }
 
 void AI::LPSolver::boundVariable(std::string varName, double bound, AI::BoundType boundType)
@@ -50,6 +54,9 @@ void AI::LPSolver::boundVariable(std::string varName, double bound, AI::BoundTyp
 		set_lowbo(lp, index, bound);
 	if (boundType == AI::UPPER)
 		set_upbo(lp, index, bound);
+
+	delete[] c_name;
+
 }
 
 void AI::LPSolver::printProblem() 
@@ -59,6 +66,17 @@ void AI::LPSolver::printProblem()
 
 AI::LPResult AI::LPSolver::solveLP()
 {
+	if (rowCount == 0) {
+		AI::LPRowBuilder row = getRowBuilder();
+		for(unsigned i = 0; i < variableCount; i++)
+			row.setColumnCoef(get_col_name(lp, i+1), 0);
+		row.setConstraintType(AI::LPConstraintType::EQUALS);
+		row.setRightHandSide(0);
+		row.build();
+		rowCount++;
+	}
+
+
 	set_verbose(lp, IMPORTANT);
 
 	solve(lp); //TODO check result
@@ -77,6 +95,7 @@ AI::LPResult AI::LPSolver::solveLP()
 		res.push_back(var);
 	}
 
+	free(varVals);
 	return AI::LPResult(res, objectiveVal);
 
 }
@@ -86,6 +105,8 @@ void AI::LPSolver::includeVarInResult(std::string name)
 	char* c_name = new char[name.length() + 1];
 	strcpy(c_name, name.c_str());
 	variablesInObjective.push_back(get_nameindex(lp, c_name, false));
+	delete[] c_name;
+
 }
 
 void AI::LPSolver::print()

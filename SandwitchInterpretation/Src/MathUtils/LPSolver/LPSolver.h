@@ -7,7 +7,7 @@
 
 namespace AI {
 
-	enum BoundType;
+	enum BoundType { UPPER, LOWER };
 
 	class LPRowBuilder;
 	class LPObjectiveBuilder;
@@ -16,6 +16,10 @@ namespace AI {
 	{
 
 	public:
+
+		~LPSolver() {
+			free_lp(&lp);
+		}
 
 		LPSolver(unsigned variableCount);
 		
@@ -42,6 +46,8 @@ namespace AI {
 		unsigned addedNamesCount;
 
 		std::vector<unsigned> variablesInObjective;
+
+		unsigned rowCount;
 
 		friend class LPRowBuilder;
 		friend class LPObjectiveBuilder;

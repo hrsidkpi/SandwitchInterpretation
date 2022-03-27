@@ -372,11 +372,11 @@
 #define ROWTYPE_CHSIGN           ROWTYPE_GE
 
 /* Public constraint codes */
-#define FR                       ROWTYPE_EMPTY
-#define LE                       ROWTYPE_LE
-#define GE                       ROWTYPE_GE
-#define EQ                       ROWTYPE_EQ
-#define OF                       ROWTYPE_OF
+#define LP_FR                       ROWTYPE_EMPTY
+#define LP_LE                       ROWTYPE_LE
+#define LP_GE                       ROWTYPE_GE
+#define LP_EQ                       ROWTYPE_EQ
+#define LP_OF                       ROWTYPE_OF
 
 /* MIP constraint classes */
 #define ROWCLASS_Unknown         0   /* Undefined/unknown */

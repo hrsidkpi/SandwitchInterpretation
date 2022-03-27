@@ -39,6 +39,36 @@
     <ClInclude Include="Src\MathUtils\LPSolver\LPObjectiveBuilder.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Src\AbstractDomain\AbstractDomainBuilder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\MathUtils\LinearAlgebraUtils\VectorsUtils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\MathUtils\RandomizedTesting\ZonotopeRandomizer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\AbstractDomain\ZonotopeN\ZonotopeN.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\AbstractDomain\ComplexAbstractDomainBuilder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\AbstractDomain\PolyhedronUnder\PolyhedronUnder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\AbstractDomain\PolyhedronUnder\Halfspace.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\MathUtils\LinearAlgebraUtils\BasisUtils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\MathUtils\LinearAlgebraUtils\TransformationUtils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\AbstractDomain\PolyhedronUnderN\PolyhedronUnderN.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\Main.cpp">
@@ -66,6 +96,24 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Src\AbstractDomain\Zonotope\ZonotopeOperations.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\AbstractDomain\AbstractDomainBuilder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\AbstractDomain\ZonotopeN\ZonotopeN.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\AbstractDomain\ComplexAbstractDomainBuilder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\AbstractDomain\PolyhedronUnder\PolyhedronUnder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\AbstractDomain\PolyhedronUnder\Halfspace.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\AbstractDomain\PolyhedronUnderN\PolyhedronUnderN.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
